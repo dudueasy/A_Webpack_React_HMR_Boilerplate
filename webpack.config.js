@@ -31,22 +31,19 @@ let config = {
   }, 
   resolve: {
     extensions: ['.js', '.jsx']
-  },
-  plugins: [
-    new HtmlWebpackPlugin({ title: 'Custom template', template: './index.html' })
-  ]
-}
-
-const isDev = process.env.NODE_ENV === 'development'
-if (isDev) {
-  config.devServer = {
+  }, 
+  devServer : {
     host: '0.0.0.0',
     port: '8888',
     hot: true,
     contentBase: path.join(__dirname, './dist'),
-  }
-
-  config.plugins.push(new webpack.HotModuleReplacementPlugin())
+  },
+  plugins: [
+    new HtmlWebpackPlugin({ title: 'Custom template', template: './index.html' }), 
+    new webpack.HotModuleReplacementPlugin()
+  ]
 }
+
+
 
 module.exports = config
