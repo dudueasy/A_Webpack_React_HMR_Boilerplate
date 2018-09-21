@@ -11,7 +11,7 @@ let config = {
     filename: '[name].[hash].js',
     path: path.join(__dirname, './dist'),
   },
-    module: {
+  module: {
     rules: [
       // 定义编译 jsx 文件使用的loader(babel-loader)
       {
@@ -29,6 +29,9 @@ let config = {
       }
     ]
   }, 
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   plugins: [
     new HtmlWebpackPlugin({ title: 'Custom template', template: './index.html' })
   ]
@@ -40,7 +43,7 @@ if (isDev) {
     host: '0.0.0.0',
     port: '8888',
     hot: true,
-    contentBase: path.join(__dirname, './'),
+    contentBase: path.join(__dirname, './dist'),
   }
 
   config.plugins.push(new webpack.HotModuleReplacementPlugin())
