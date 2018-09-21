@@ -11,6 +11,24 @@ let config = {
     filename: '[name].[hash].js',
     path: path.join(__dirname, './dist'),
   },
+    module: {
+    rules: [
+      // 定义编译 jsx 文件使用的loader(babel-loader)
+      {
+        test: /\.jsx$/,
+        use: 'babel-loader'
+      },
+      // 定义 js 文件使用的 loader
+      {
+        test: /\.js$/,
+        use: 'babel-loader',
+        // 排除 node_modules 目录
+        exclude: [
+          path.join(__dirname, './node_modules')
+        ]
+      }
+    ]
+  }, 
   plugins: [
     new HtmlWebpackPlugin({ title: 'Custom template', template: './index.html' })
   ]
