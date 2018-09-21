@@ -1,11 +1,14 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './src/App'
+
 if(module.hot) {
   module.hot.accept();
 }
 
 
-let canvas = document.getElementById('canvas')
+let root = document.getElementById('root')
 
-let context = canvas.getContext('2d')
-// canvas.style.backgroundColor = 'red'
+ReactDOM.render(<App/>,root)
 
-canvas.style.backgroundColor = 'grey'
+
