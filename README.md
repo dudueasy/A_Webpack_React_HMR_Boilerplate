@@ -4,7 +4,7 @@
 # babel setting
 support for ES6
 
-support for ES7 proposal class properties 
+support for proposal class properties , @decorator
 
 support for JSX
 
